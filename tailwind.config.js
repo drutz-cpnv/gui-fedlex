@@ -12,7 +12,7 @@ module.exports = {
             }
         },
         fontFamily: {
-            sans: ['Bahnschrift Flex', 'sans-serif'],
+            sans: ['din-2014', 'sans-serif'],
         },
     },
     plugins: [],
