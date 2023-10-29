@@ -24,3 +24,18 @@ body > header {
 .condensed {
   font-family: 'din-2014-narrow', sans-serif;
 }
+
+.text-section {
+  box-shadow: -2px 19px 16px -21px rgba(0, 0, 0, 0.25) inset;
+}
+
+[data-accordion-content] {
+  --_height: auto;
+
+  height: var(--_height);
+}
+
+[data-accordion-button] svg {
+  transition-property: rotate;
+  transition-duration: 200ms;
+}

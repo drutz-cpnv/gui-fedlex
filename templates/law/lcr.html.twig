@@ -2,8 +2,8 @@
 
 {% block body %}
 
-    <main class="w-full p-[15px] flex flex-col gap-4">
-        <section class="flex flex-col gap-3">
+    <main class="w-full flex flex-col gap-4">
+        <section class="flex flex-col gap-3 pt-[15px] px-[15px]">
             <div class="flex flex-row gap-[10px]">
                 <div class="w-7 h-[1.5px] bg-gray-500"></div>
                 <div class="w-full h-[1.5px] bg-gray-500"></div>
@@ -13,24 +13,133 @@
                 <div class="w-full text-xl font-bold text-primary">Loi fédérale <br> sur la circulation routière</div>
             </div>
         </section>
-        <section class="flex flex-col gap-3">
+        <section class="flex flex-col gap-3 px-[15px]" data-accordion>
             <div class="flex flex-row gap-[10px]">
                 <div class="w-7 h-[1.5px]"></div>
                 <div class="w-full h-[.8px] bg-gray-200"></div>
             </div>
-            <div class="flex flex-row gap-[10px]">
-                <div class="w-7 text-neutral-600 text-xs uppercase light-condensed"><i data-feather="chevron-down"></i></div>
+            <div class="flex flex-row gap-[10px] relative" data-accordion-button>
+                <div class="w-7 text-neutral-600 text-xs uppercase light-condensed"><i data-feather="chevron-down"></i>
+                </div>
                 <div class="w-full font-bold text-primary">Informations générales</div>
             </div>
-            <div class="flex flex-row gap-[10px]">
-                <div class="w-7 flex"><div class="h-full w-0.5 bg-gray-200 m-auto"></div></div>
-                <div class="w-fulltext-primary">
+            <div class="flex flex-row gap-[10px] overflow-hidden transition-all duration-200" data-accordion-content>
+                <div class="w-7 flex">
+                    <div class="h-full w-0.5 bg-gray-200 m-auto"></div>
+                </div>
+                <div class="w-fulltext-primary flex flex-col gap-2">
                     <div class="flex gap-2">
                         <div class="w-1 h-6 bg-green-600 rounded"></div>
                         <div class="text-gray-400">Ce texte est en vigueur</div>
                     </div>
+                    <div class="flex flex-col">
+                        <div class="font-semibold">Décision</div>
+                        <div>19 décembre 1958</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="font-semibold">Entrée en vigeure</div>
+                        <div>1 octobre 1959</div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="font-semibold">Langue(s) de publication</div>
+                        <div><a href="#">DE</a> <a href="#">FR</a> <a href="#">IT</a> <a href="#">RM</a></div>
+                    </div>
                 </div>
             </div>
+        </section>
+        <section class="text-section bg-white p-[15px] h-full leading-tight">
+            <section class="flex flex-col gap-3 pt-4">
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 h-[1.5px] bg-gray-500"></div>
+                    <div class="w-full h-[1.5px] bg-gray-500"></div>
+                </div>
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 text-neutral-600 pt-1">1</div>
+                    <div class="w-full text-xl font-bold text-primary">Dispostions générales</div>
+                </div>
+            </section>
+            <section class="flex flex-col gap-3 pt-4">
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 text-neutral-600 pt-1"></div>
+                    <div class="w-full text-lg font-bold text-primary">Champ d'application</div>
+                </div>
+            </section>
+            <article class="flex flex-col gap-3 pt-4" data-accordion>
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 h-[1.5px] bg-gray-200"></div>
+                    <div class="w-full h-[1.5px] bg-gray-200"></div>
+                </div>
+                <div class="flex flex-row gap-[10px]" data-accordion-button>
+                    <div class="w-7 pt-1"></div>
+                    <div class="w-full text-md font-bold">Article 1</div>
+                </div>
+                <div class="overflow-hidden transition-all duration-200 flex flex-col gap-2" data-accordion-content>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">1</div>
+                        <p class="w-full">La présente loi régit la circulation sur la voie publique ainsi que la
+                            responsabilité civile et l’assurance pour les dommages causés par des véhicules automobiles,
+                            des cycles ou des engins assimilés à des véhicules.</p>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">2</div>
+                        <p class="w-full">Les conducteurs de véhicules automobiles et les cyclistes sont soumis aux
+                            règles de la circulation (art. 26 à 57a) sur toutes les routes servant à la circulation
+                            publique; les autres usagers de la route ne sont soumis à ces règles que sur les routes
+                            ouvertes entièrement ou partiellement aux véhicules automobiles ou aux cycles.</p>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">3</div>
+                        <p class="w-full">Sauf dispositions contraires de la présente loi, la loi du 12 juin 2009 sur la
+                            sécurité des produits s’applique à la mise sur le marché de véhicules automobiles, de cycles
+                            et de remorques ainsi que de leurs composants.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="flex flex-col gap-3 pt-4" data-accordion>
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 h-[1.5px] bg-gray-200"></div>
+                    <div class="w-full h-[1.5px] bg-gray-200"></div>
+                </div>
+                <div class="flex flex-row gap-[10px]" data-accordion-button>
+                    <div class="w-7 pt-1"></div>
+                    <div class="w-full text-md font-bold">Article 2</div>
+                </div>
+                <div class="overflow-hidden transition-all duration-200 flex flex-col gap-2" data-accordion-content>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">1</div>
+                        <div class="w-full">
+                            <p class="w-full ">Le Conseil fédéral peut, après avoir consulté les cantons:</p>
+                            <ol class="list-inside" style="list-style-type: lower-alpha">
+                                <li>déclarer ouvertes aux véhicules automobiles et aux cycles, avec ou sans
+                                    restrictions,
+                                    les routes nécessaires au grand transit;
+                                </li>
+                                <li>interdire temporairement, sur tout le territoire suisse, la circulation des
+                                    véhicules
+                                    automobiles ou de certaines catégories d’entre eux;
+                                </li>
+                                <li>...</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">2</div>
+                        <p class="w-full">La circulation des véhicules motorisés lourds destinés au transport des
+                            marchandises est interdite la nuit de 22 h à 5 h et le dimanche. Le Conseil fédéral règle
+                            les modalités et définit les exceptions.</p>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">3</div>
+                        <p class="w-full">Le Conseil fédéral établit une liste des routes uniquement ouvertes aux
+                            véhicules à moteur. À moins que l’Assemblée fédérale ne soit compétente, il désigne ces
+                            routes après
+                            avoir entendu les cantons intéressés ou sur leur proposition. Il fixe les catégories de
+                            véhicules
+                            à moteur qui peuvent circuler sur ces routes.</p>
+                    </div>
+                </div>
+            </article>
         </section>
     </main>
 
