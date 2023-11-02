@@ -24,6 +24,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@tailwindcss/forms": "^0.5.6",
         "feather-icons": "^4.29.1"
     }
 }

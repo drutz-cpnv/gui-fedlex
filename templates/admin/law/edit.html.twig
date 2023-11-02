@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main class="w-full flex flex-col gap-4">
+        <section class="p-2 pl-[50px] bg-red-200 text-red-900">
+            <p class="font-medium">Interface d'administration</p>
+            <p class="leading-4 text-sm">En raison de la nature sensible des données, une fois l'application quitée vous serrez déconnecter.</p>
+        </section>
+        <section class="flex flex-col gap-3 px-[15px]">
+            <div class="flex flex-row gap-[10px]">
+                <div class="w-7 h-[1.5px] bg-gray-500"></div>
+                <div class="w-full h-[1.5px] bg-gray-500"></div>
+            </div>
+            <div class="flex flex-row gap-[10px]">
+                <div class="w-7 text-neutral-600 text-xs uppercase condensed pt-1">LCR</div>
+                <div class="w-full text-xl font-bold text-primary">Loi fédérale <br> sur la circulation routière</div>
+            </div>
+        </section>
+        <section class="flex flex-col gap-3 px-[15px]" data-accordion>
+            <div class="flex flex-row gap-[10px]">
+                <div class="w-7 h-[1.5px]"></div>
+                <div class="w-full h-[.8px] bg-gray-200"></div>
+            </div>
+            <div class="flex flex-row gap-[10px] relative" data-accordion-button>
+                <div class="w-7 text-neutral-600 text-xs uppercase light-condensed"><i data-feather="chevron-down"></i>
+                </div>
+                <div class="w-full font-bold text-primary">Informations générales</div>
+            </div>
+            <div class="flex flex-row gap-[10px] overflow-hidden transition-all duration-200" data-accordion-content>
+                <div class="w-7 flex">
+                    <div class="h-full w-0.5 bg-gray-200 m-auto"></div>
+                </div>
+                <div class="w-full text-primary flex flex-col">
+                    {{ form_start(form) }}
+                    <div>
+                        {{ form_row(form.title) }}
+                    </div>
+                    <div>
+                        <div class="mb-3">
+                            <div class="md:flex md:items-center row mb-2 h-[65px]">
+                                <label for="state" class="block text-grey-darker font-bold md:text-right mb-1 md:mb-0 pr-4">État de la publication</label>
+                                <div class="relative h-fit">
+                                    <div class="absolute w-full left-0 flex items-center">
+                                        <select id="state" name="state"
+                                                class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+                                            <option>En vigueur</option>
+                                            <option>Ancienne version</option>
+                                            <option>Abrogé</option>
+                                            <option>Bientôt en vigueur</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        {{ form_row(form.publishedAt) }}
+                    </div>
+                    <div>
+                        <div class="flex gap-x-4 sm:col-span-2">
+                            <label class="block text-grey-darker font-bold md:text-right mb-1 md:mb-0 pr-4">Langue(s) de la publication</label>
+                            <div class="flex flex-col w-full items-end gap-2">
+                                <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+                                <div class="flex gap-1">
+                                    <button type="button" id="de" class="bg-red-600 flex w-10 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+                                        <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
+                                        <span aria-hidden="true" class="translate-x-3.5 h-6 w-6 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
+                                    </button>
+                                    <label class="w-6" for="de">DE</label>
+                                </div>
+                                <div class="inline-flex gap-1">
+                                    <button type="button" id="fr" class="bg-red-600 flex w-10 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+                                        <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
+                                        <span aria-hidden="true" class="translate-x-3.5 h-6 w-6 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
+                                    </button>
+                                    <label class="w-6" for="fr">FR</label>
+                                </div>
+                                <div class="inline-flex gap-1">
+                                    <button type="button" id="it" class="bg-red-600 flex w-10 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+                                        <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
+                                        <span aria-hidden="true" class="translate-x-3.5 h-6 w-6 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
+                                    </button>
+                                    <label class="w-6" for="it">IT</label>
+                                </div>
+                                <div class="inline-flex gap-1">
+                                    <button type="button" id="ro" class="bg-red-600 flex w-10 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+                                        <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
+                                        <span aria-hidden="true" class="translate-x-3.5 h-6 w-6 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
+                                    </button>
+                                    <label class="w-6" for="ro">RO</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </section>
+        <section class="p-[15px] bg-red-600 text-white flex gap-4">
+            <span data-feather="info"></span>
+            <p class="leading-5">Le text de lois ne peut pas être modifier sur l'application mobile</p>
+        </section>
+        <section class="text-section bg-white p-[15px] h-full leading-tight">
+            <section class="flex flex-col gap-3 pt-4">
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 h-[1.5px] bg-gray-500"></div>
+                    <div class="w-full h-[1.5px] bg-gray-500"></div>
+                </div>
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 text-neutral-600 pt-1">1</div>
+                    <div class="w-full text-xl font-bold text-primary">Dispostions générales</div>
+                </div>
+            </section>
+            <section class="flex flex-col gap-3 pt-4">
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 text-neutral-600 pt-1"></div>
+                    <div class="w-full text-lg font-bold text-primary">Champ d'application</div>
+                </div>
+            </section>
+            <article class="flex flex-col gap-3 pt-4" data-accordion>
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 h-[1.5px] bg-gray-200"></div>
+                    <div class="w-full h-[1.5px] bg-gray-200"></div>
+                </div>
+                <div class="flex flex-row gap-[10px]" data-accordion-button>
+                    <div class="w-7 pt-1"></div>
+                    <div class="w-full text-md font-bold">Article 1</div>
+                </div>
+                <div class="overflow-hidden transition-all duration-200 flex flex-col gap-2" data-accordion-content>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">1</div>
+                        <p class="w-full">La présente loi régit la circulation sur la voie publique ainsi que la
+                            responsabilité civile et l’assurance pour les dommages causés par des véhicules automobiles,
+                            des cycles ou des engins assimilés à des véhicules.</p>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">2</div>
+                        <p class="w-full">Les conducteurs de véhicules automobiles et les cyclistes sont soumis aux
+                            règles de la circulation (art. 26 à 57a) sur toutes les routes servant à la circulation
+                            publique; les autres usagers de la route ne sont soumis à ces règles que sur les routes
+                            ouvertes entièrement ou partiellement aux véhicules automobiles ou aux cycles.</p>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">3</div>
+                        <p class="w-full">Sauf dispositions contraires de la présente loi, la loi du 12 juin 2009 sur la
+                            sécurité des produits s’applique à la mise sur le marché de véhicules automobiles, de cycles
+                            et de remorques ainsi que de leurs composants.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="flex flex-col gap-3 pt-4" data-accordion>
+                <div class="flex flex-row gap-[10px]">
+                    <div class="w-7 h-[1.5px] bg-gray-200"></div>
+                    <div class="w-full h-[1.5px] bg-gray-200"></div>
+                </div>
+                <div class="flex flex-row gap-[10px]" data-accordion-button>
+                    <div class="w-7 pt-1"></div>
+                    <div class="w-full text-md font-bold">Article 2</div>
+                </div>
+                <div class="overflow-hidden transition-all duration-200 flex flex-col gap-2" data-accordion-content>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">1</div>
+                        <div class="w-full">
+                            <p class="w-full ">Le Conseil fédéral peut, après avoir consulté les cantons:</p>
+                            <ol class="list-inside" style="list-style-type: lower-alpha">
+                                <li>déclarer ouvertes aux véhicules automobiles et aux cycles, avec ou sans
+                                    restrictions,
+                                    les routes nécessaires au grand transit;
+                                </li>
+                                <li>interdire temporairement, sur tout le territoire suisse, la circulation des
+                                    véhicules
+                                    automobiles ou de certaines catégories d’entre eux;
+                                </li>
+                                <li>...</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">2</div>
+                        <p class="w-full">La circulation des véhicules motorisés lourds destinés au transport des
+                            marchandises est interdite la nuit de 22 h à 5 h et le dimanche. Le Conseil fédéral règle
+                            les modalités et définit les exceptions.</p>
+                    </div>
+                    <div class="flex flex-row gap-[10px]">
+                        <div class="w-7 text-right text-neutral-500">3</div>
+                        <p class="w-full">Le Conseil fédéral établit une liste des routes uniquement ouvertes aux
+                            véhicules à moteur. À moins que l’Assemblée fédérale ne soit compétente, il désigne ces
+                            routes après
+                            avoir entendu les cantons intéressés ou sur leur proposition. Il fixe les catégories de
+                            véhicules
+                            à moteur qui peuvent circuler sur ces routes.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+{% endblock %}

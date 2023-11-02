@@ -15,5 +15,7 @@ module.exports = {
             sans: ['din-2014', 'sans-serif'],
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms')
+    ],
 }

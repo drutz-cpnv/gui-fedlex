@@ -9,8 +9,19 @@
 import './styles/style.scss';
 import { replace } from 'feather-icons'
 import {Accordion} from "./module/accordion";
+import {map} from "core-js/internals/array-iteration";
 
 replace()
 
 
 let accordions = [...document.querySelectorAll("[data-accordion]")].map(v => new Accordion(v, 'svg'))
+
+let switches = [...document.querySelectorAll("[role=switch]")].map(v => {
+    v.addEventListener('click', (e) => {
+        v.classList.toggle('bg-red-600')
+        v.classList.toggle('bg-gray-200')
+        const indicator = v.querySelector('span[aria-hidden]')
+        indicator.classList.toggle('translate-x-3.5')
+        indicator.classList.toggle('translate-x-0')
+    })
+})
